@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, useNavigate } from 'react-router-dom'
 import { handleError, handleSuccess } from '../utils'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Home = () => {
     const [loggedInUser, setLoggedInUser] = useState('')
@@ -21,7 +22,7 @@ const Home = () => {
 
     const fetchProducts = async () => {
         try {
-            const url = "http://localhost:8080/products"
+            const url = apiUrl + "/products"
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')

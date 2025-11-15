@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { handleError, handleSuccess } from '../utils'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Signup = () => {
 
@@ -26,7 +27,7 @@ const Signup = () => {
             return handleError('All fields are required')
         }
         try {
-            const url = "http://localhost:8080/auth/signup"
+            const url = apiUrl + "/auth/signup"
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

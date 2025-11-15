@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { handleError, handleSuccess } from '../utils'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Login = () => {
 
@@ -25,7 +26,7 @@ const Login = () => {
             return handleError('email and password are required')
         }
         try {
-            const url = "http://localhost:8080/auth/login"
+            const url = apiUrl + "/auth/login"
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
